@@ -4,6 +4,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'; 
 import Home from './components/Home';
 import Contact from './components/Contact';
+import Login from './components/Login';
 import './styles/App.css';
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/locations" element={<div>Locations Page (Placeholder)</div>} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<div>Login/Registration Page (Placeholder)</div>} />
+        <Route path="/login"  element={<Login />} />
       </Routes>
     </Router>
   );
