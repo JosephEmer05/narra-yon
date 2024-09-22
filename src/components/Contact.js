@@ -53,7 +53,6 @@ function Contact() {
                   <Form.Label>State *</Form.Label>
                   <Form.Control as="select" required>
                     <option>Select</option>
-                    {/* Add your state options here */}
                   </Form.Control>
                 </Form.Group>
               </Col>
@@ -87,11 +86,12 @@ function Contact() {
 
         <Col md={4} className="mt-4">
           <div className="contact-details">
-            <h5>Contact us by phone</h5>
+            <h5>Contact us by phone/email</h5>
             <p>1-877-847-6181</p>
+            <p>narra_yon@gmail.com</p>
             <p>Hours of Operation: Monday - Friday: 8am - 6pm EST</p>
 
-            <h5>Questions About Our Products?</h5>
+            <h5>Questions About Our Food?</h5>
             <Button variant="outline-secondary" href="#">
               View all FAQs
             </Button>
@@ -102,7 +102,6 @@ function Contact() {
                 <li>What are live and active cultures?</li>
                 <li>What is rBST?</li>
                 <li>Is our product organic?</li>
-                {/* Add more topics as needed */}
               </ul>
             </div>
           </div>
