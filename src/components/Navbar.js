@@ -11,6 +11,7 @@ function Navbar() {
         <Link to="/locations">Locations</Link>
         <Link to="/contact">Contacts</Link>
         <Link to="/login">Login/Register</Link>
+        <Link to="/menu">Menu</Link>
       </div>
     </nav>
   );
