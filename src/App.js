@@ -4,6 +4,7 @@ import { Navbar, Nav, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'; 
 import Home from './components/Home';
 import Contact from './components/Contact';
+import Menu from './components/Menu';
 import './styles/App.css';
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
               <LinkContainer to="/locations">
                 <Nav.Link>Locations</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/menu">
+                <Nav.Link>Menu</Nav.Link>
+              </LinkContainer>
               <LinkContainer to="/contact">
                 <Nav.Link>Contact</Nav.Link>
               </LinkContainer>
@@ -37,6 +41,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/locations" element={<div>Locations Page (Placeholder)</div>} />
+        <Route path="/menu" element={<Menu />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<div>Login/Registration Page (Placeholder)</div>} />
       </Routes>
