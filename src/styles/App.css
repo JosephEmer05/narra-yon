@@ -1,6 +1,9 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
+  background-image: url("mainbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1 {
@@ -12,23 +15,36 @@ button {
   cursor: pointer;
 }
 
+.logo-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 10px; /* adjust the margin to your liking */
+}
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
   padding: 20px;
-  background: #000;
-  color: #fff;
+  background: #fff; /* Change navbar background to white */
+  color: #000; /* Change navbar text color to black */
+}
+
+.navbar-collapse {
+  margin-left: 120px; /* adjust the margin to match the padding in .navbar-size */
+}
+
+.navbar-size {
+  padding-left: 120px;
+  height: 70px;
 }
 
 .navbar a {
   text-decoration: none;
-  color: white;
-  font-size: 24px;
+  color: black; /* Change navbar link color to black */
 }
 
 .navbar div a {
   margin: 0 15px;
-  font-size: 18px;
+  font-size: 17.5px;
 }
 
 .home-container {
@@ -47,14 +63,16 @@ button {
 }
 
 .home-buttons button {
-  padding: 10px 20px;
   margin-right: 20px;
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 50px; /* Adjust this value to control the curvature */
+  text-decoration: none;
 }
 
 .book-btn {
-  background-color: green;
+  background-color: #ff8b00;
   color: white;
 }
 
@@ -63,4 +81,20 @@ button {
   color: white;
 }
 
+.login-button {
+  background-color: #ff8b00; /* Use the book-btn's orange color */
+  color: white;
+  margin-right: 20px;
+  border: none;
+  border-radius: 50px; /* Same as home-buttons button */
+  padding: 10px 20px; /* Same as home-buttons button */
+  text-decoration: none;
+  min-width: 150px; /* Set a minimum width to make it wider */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
 
+.login-button:hover {
+  background-color: #e07a00; /* Slightly darker shade of the book-btn color */
+  color: white;
+}
