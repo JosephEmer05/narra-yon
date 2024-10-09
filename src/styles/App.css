@@ -6,45 +6,43 @@ body {
   background-repeat: no-repeat;
 }
 
-h1 {
-  font-size: 2.5rem;
-  color: #333;
-}
-
 button {
   cursor: pointer;
 }
 
-.logo-container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 10px; /* adjust the margin to your liking */
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  background: #fff;
+  color: #000;
 }
 
-.navbar {
-  padding: 20px;
-  background: #fff; /* Change navbar background to white */
-  color: #000; /* Change navbar text color to black */
+.navbar-content {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  padding: 0px; /* Consistent padding */
+}
+
+.navbar-logo {
+  height: 50px; /* Size for logo */
+  margin-right: 480px; /* Space between the logo and nav links */
 }
 
 .navbar-collapse {
-  margin-left: 120px; /* adjust the margin to match the padding in .navbar-size */
+  margin-left: auto; /* Automatically push links to the right */
+}
+
+.navbar-links {
+  display: flex; /* Use flex for the nav links */
 }
 
 .navbar-size {
-  padding-left: 120px;
-  height: 70px;
+  height: 65px; /* Ensure consistent navbar height */
 }
 
 .navbar a {
-  text-decoration: none;
-  color: black; /* Change navbar link color to black */
-}
-
-.navbar div a {
-  margin: 0 15px;
-  font-size: 17.5px;
+  margin: 0 15px; /* Ensure the margin is appropriate */
 }
 
 .home-container {
@@ -97,4 +95,49 @@ button {
 .login-button:hover {
   background-color: #e07a00; /* Slightly darker shade of the book-btn color */
   color: white;
+}
+
+.default-bg {
+  background-image: url('mainbg.png'); /* Default background */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+.menu-reservations-bg {
+  background-image: url('woodbg.png'); /* Background for Menu and Reservations */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+
+.mains h2 {
+  margin-top: 0;
+  color: #ffffff; /* Change the h2 text color in mains */
+}
+
+.mains  {
+  margin-top: 0;
+  color: #ffffff; /* Change the h2 text color in mains */
+}
+
+.food-item {
+  width: 45%;
+  margin: 10px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #ffffff; /* Change text color inside food items */
+}
+
+.food-details {
+  padding: 10px;
+  color: #000000; /* Change text color inside food details */
+}
+
+.price {
+  font-weight: bold;
+  color: #ff8b00; /* Change price text color */
 }
