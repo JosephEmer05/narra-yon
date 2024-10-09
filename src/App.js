@@ -5,10 +5,9 @@ import { LinkContainer } from 'react-router-bootstrap';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
+import Reservations from './components/Reservations';
 import './styles/App.css';
 
-// Import the new Menu component
-import Menu from './components/Menu';
 
 function App() {
   return (
@@ -24,8 +23,8 @@ function App() {
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/locations">
-                <Nav.Link>Locations</Nav.Link>
+              <LinkContainer to="/reservations">
+                <Nav.Link>Reservations</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/menu">
                 <Nav.Link>Menu</Nav.Link>
@@ -43,7 +42,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/locations" element={<div>Locations Page (Placeholder)</div>} />
+        <Route path="/reservations" element={<Reservations />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<div>Login/Registration Page (Placeholder)</div>} />
