@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import '../styles/Reservation.css'; // Importing the CSS file
-
+import '../styles/Reservation.css';
 function Reservations() {
   const [persons, setPersons] = useState(1);
   const [date, setDate] = useState(new Date());
@@ -16,7 +15,7 @@ function Reservations() {
   };
 
   const handleTimeChange = (event) => {
-    setTime(new Date(`1970-01-01T${event.target.value}:00`)); // Adjusting the date object
+    setTime(new Date(`1970-01-01T${event.target.value}:00`));
   };
 
   const handleCommentsChange = (event) => {
@@ -25,7 +24,6 @@ function Reservations() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you would handle submitting the reservation data to your backend
     console.log('Reservation submitted:', {
       persons,
       date,
