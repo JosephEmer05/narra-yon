@@ -1,54 +1,61 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Navbar, Nav, Container } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap'; 
+import { Route, Routes } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import Home from './components/Home';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
+import Reservations from './components/Reservations';
+//import Login from './components/Login';
 import './styles/App.css';
-
-// Import the new Menu component
-import Menu from './components/Menu';
+import logo from './narralogo.png';
 
 function App() {
   return (
-    <Router>
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Container>
+    <>
+      <Navbar bg="white" variant="white" expand="lg" className="navbar-size">
+        <div className="navbar-content">
+          {/* Logo on the left */}
           <LinkContainer to="/">
-            <Navbar.Brand>Narra-Yon</Navbar.Brand>
+            <Navbar.Brand className="navbar-logo-container">
+              <img src={logo} alt="Narra-Yon Logo" className="navbar-logo" />
+            </Navbar.Brand>
           </LinkContainer>
+
+          {/* Navbar Toggle for mobile view */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
+
+          {/* Navigation Links on the right */}
+          <Navbar.Collapse id="basic-navbar-nav" className="navbar-collapse">
+            <Nav className="navbar-links">
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/locations">
-                <Nav.Link>Locations</Nav.Link>
+              <LinkContainer to="/reservations">
+                <Nav.Link>Reservations</Nav.Link>
+              </LinkContainer>
+              <LinkContainer to="/contact">
+                <Nav.Link>Contact Us</Nav.Link>
               </LinkContainer>
               <LinkContainer to="/menu">
                 <Nav.Link>Menu</Nav.Link>
               </LinkContainer>
-              <LinkContainer to="/contact">
-                <Nav.Link>Contact</Nav.Link>
-              </LinkContainer>
               <LinkContainer to="/login">
-                <Nav.Link>Login/Register</Nav.Link>
+                <Nav.Link className="login-button">Log-In</Nav.Link>
               </LinkContainer>
             </Nav>
           </Navbar.Collapse>
-        </Container>
+        </div>
       </Navbar>
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/locations" element={<div>Locations Page (Placeholder)</div>} />
+        <Route path="/reservations" element={<Reservations />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<div>Login/Registration Page (Placeholder)</div>} />
+        <Route path="/login" element={<div>Log-In (Placeholder)</div>} />
       </Routes>
-    </Router>
+    </>
   );
 }
 

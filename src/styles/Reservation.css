@@ -1,0 +1,63 @@
+/* Basic styling for the reservation form container */
+.reservation-form {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for contrast */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Padding around the form */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    max-width: 400px; /* Limit width */
+    margin: 50px auto; /* Center the form */
+  }
+  
+  /* Header styling */
+  .reservation-form h2 {
+    text-align: center; /* Center the title */
+    color: #5a3e2b; /* Title color */
+    font-family: 'Georgia', serif; /* Elegant font */
+  }
+  
+  /* Form group styling */
+  .form-group {
+    margin-bottom: 20px; /* Space between form fields */
+  }
+  
+  /* Label styling */
+  label {
+    display: block; /* Label above the input */
+    margin-bottom: 5px; /* Space below the label */
+    font-weight: bold; /* Bold labels */
+    color: #333; /* Label color */
+  }
+  
+  /* Styling for select and input elements */
+  select, input[type="date"], input[type="time"], textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside */
+    border: 1px solid #ccc; /* Border */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+  }
+  
+  /* Textarea styling */
+  textarea {
+    resize: none; /* Disable resizing */
+    height: 80px; /* Fixed height */
+  }
+  
+  /* Button styling */
+  button[type="submit"] {
+    background-color: #f2a900; /* Button color */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding */
+    width: 100%; /* Full width */
+    font-size: 18px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Button hover effect */
+  button[type="submit"]:hover {
+    background-color: #d48f00; /* Darker button color on hover */
+  }
+  

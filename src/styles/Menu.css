@@ -1,0 +1,72 @@
+/* General container styling */
+.menu-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background */
+    padding: 20px; /* Padding for the container */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  
+  /* Styling for the mains section */
+  .mains {
+    text-align: center; /* Center text */
+    margin-bottom: 30px; /* Space below the mains section */
+  }
+  
+  /* Header styling */
+  .mains h2 {
+    color: #5a3e2b; /* Title color */
+    font-family: 'Georgia', serif; /* Elegant font */
+  }
+  
+  /* Paragraph styling */
+  .mains p {
+    color: #666; /* Text color */
+    font-size: 16px; /* Font size */
+    margin: 0 0 20px; /* Margin below the paragraph */
+  }
+  
+  /* Food items container styling */
+  .food-items {
+    display: flex; /* Flexbox for layout */
+    flex-wrap: wrap; /* Wrap items to the next line */
+    justify-content: space-between; /* Space between items */
+  }
+  
+  /* Individual food item styling */
+  .food-item {
+    background-color: #fff; /* White background for food items */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    width: calc(50% - 10px); /* Responsive width for two items per row */
+    margin-bottom: 20px; /* Margin below each food item */
+    overflow: hidden; /* Clip overflow */
+  }
+  
+  /* Image styling for food items */
+  .food-image img {
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Food details styling */
+  .food-details {
+    padding: 15px; /* Padding for the details */
+  }
+  
+  /* Food item name styling */
+  .food-details h3 {
+    color: #f2a900; /* Food item name color */
+    margin: 10px 0; /* Margin around the title */
+  }
+  
+  /* Food item description styling */
+  .food-details p {
+    margin: 5px 0; /* Margin around description */
+  }
+  
+  /* Price styling */
+  .price {
+    font-weight: bold; /* Bold price text */
+    color: #5a3e2b; /* Price color */
+  }
+  

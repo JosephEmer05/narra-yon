@@ -1,11 +1,9 @@
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
-}
-
-h1 {
-  font-size: 2.5rem;
-  color: #333;
+  background-image: url("mainbg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 button {
@@ -14,21 +12,37 @@ button {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  background: #000;
-  color: #fff;
+  background: #fff;
+  color: #000;
+}
+
+.navbar-content {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  padding: 0px; /* Consistent padding */
+}
+
+.navbar-logo {
+  height: 50px; /* Size for logo */
+  margin-right: 480px; /* Space between the logo and nav links */
+}
+
+.navbar-collapse {
+  margin-left: auto; /* Automatically push links to the right */
+}
+
+.navbar-links {
+  display: flex; /* Use flex for the nav links */
+}
+
+.navbar-size {
+  height: 65px; /* Ensure consistent navbar height */
 }
 
 .navbar a {
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-}
-
-.navbar div a {
-  margin: 0 15px;
-  font-size: 18px;
+  margin: 0 15px; /* Ensure the margin is appropriate */
 }
 
 .home-container {
@@ -47,14 +61,16 @@ button {
 }
 
 .home-buttons button {
-  padding: 10px 20px;
   margin-right: 20px;
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
+  border-radius: 50px; /* Adjust this value to control the curvature */
+  text-decoration: none;
 }
 
 .book-btn {
-  background-color: green;
+  background-color: #ff8b00;
   color: white;
 }
 
@@ -63,4 +79,65 @@ button {
   color: white;
 }
 
+.login-button {
+  background-color: #ff8b00; /* Use the book-btn's orange color */
+  color: white;
+  margin-right: 20px;
+  border: none;
+  border-radius: 50px; /* Same as home-buttons button */
+  padding: 10px 20px; /* Same as home-buttons button */
+  text-decoration: none;
+  min-width: 150px; /* Set a minimum width to make it wider */
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
 
+.login-button:hover {
+  background-color: #e07a00; /* Slightly darker shade of the book-btn color */
+  color: white;
+}
+
+.default-bg {
+  background-image: url('mainbg.png'); /* Default background */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+.menu-reservations-bg {
+  background-image: url('woodbg.png'); /* Background for Menu and Reservations */
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ensure it covers the full viewport height */
+}
+
+
+.mains h2 {
+  margin-top: 0;
+  color: #ffffff; /* Change the h2 text color in mains */
+}
+
+.mains  {
+  margin-top: 0;
+  color: #ffffff; /* Change the h2 text color in mains */
+}
+
+.food-item {
+  width: 45%;
+  margin: 10px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color: #ffffff; /* Change text color inside food items */
+}
+
+.food-details {
+  padding: 10px;
+  color: #000000; /* Change text color inside food details */
+}
+
+.price {
+  font-weight: bold;
+  color: #ff8b00; /* Change price text color */
+}
