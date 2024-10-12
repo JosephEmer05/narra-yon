@@ -26,7 +26,7 @@ const InfoText = styled.p`
 `;
 
 const FormInput = styled.input`
-  width: 115%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -77,8 +77,15 @@ const InputRow = styled.div`
   gap:80px;
 `;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between; // This will evenly space the elements
+  align-items: center;
+  margin-bottom: 20px; 
+`;
+
 const HalfWidthInput = styled.input`
-  width: 140%; 
+  width: 49%; // Set a width that fits within the container
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -88,6 +95,7 @@ const HalfWidthInput = styled.input`
   color: #333;
   font-size: 1rem;
 
+  
   &:focus {
     border-color: #000;
     background-color: #f0e4d1;
@@ -152,21 +160,22 @@ function Login() {
           <LoginHeader>Register</LoginHeader>
           <form className="login-form" onSubmit={handleRegisterSubmit}>
             <InputRow>
-              <div>
-                <InfoText>First Name</InfoText>
-                <HalfWidthInput type="text" name="registerFirstname" required />
-              </div>
-              <div>
-                <InfoText>Last Name</InfoText>
-                <HalfWidthInput type="text" name="registerLastname" required />
-              </div>
+            <div>
+      <Container>
+      
+        <HalfWidthInput type="firstname" placeholder="First Name" />
+        
+        <HalfWidthInput type="lastname" placeholder="Last Name" />
+      </Container>
+      
+    </div>
             </InputRow>
-            <InfoText>Email</InfoText>
-            <FormInput type="email" name="registerEmail" required />
-            <InfoText>Password</InfoText>
-            <FormInput type="password" name="registerPassword" required />
-            <InfoText>Confirm Password</InfoText>
-            <FormInput type="password" name="registerConfirmPassword" required />
+            
+            <FormInput type="email" name="registerEmail" required placeholder="Email" />
+            
+            <FormInput type="password" name="registerPassword" required placeholder="Register Password"/>
+            
+            <FormInput type="password" name="registerConfirmPassword" required placeholder="Confirm Password" />
             <SubmitButton type="submit">Register</SubmitButton>
             <ToggleText>
               Already have an account?{' '}

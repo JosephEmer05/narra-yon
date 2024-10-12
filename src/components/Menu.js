@@ -2,10 +2,10 @@ import React from 'react';
 
 function Menu() {
   const foodItems = [
-    { name: 'Margherita Pizza', description: 'Classic pizza with tomato, mozzarella, and basil.', price: '$12.99' },
-    { name: 'Caesar Salad', description: 'Crispy romaine, parmesan, croutons, and Caesar dressing.', price: '$8.99' },
-    { name: 'Grilled Chicken Sandwich', description: 'Grilled chicken breast with lettuce, tomato, and mayo.', price: '$10.99' },
-    { name: 'Spaghetti Carbonara', description: 'Traditional pasta with pancetta, eggs, and parmesan.', price: '$14.99' },
+    { name: 'Adobo Pizza', description: 'Classic pizza infused with adobo chicken and sauce.', price: '₱249.99' },
+    { name: 'Rizal Salad', description: 'Crispy kangkong, parmesan, croutons, and Bonifacio dressing.', price: '₱149.99' },
+    { name: 'Crispy Mang Inasal', description: 'Grilled chicken breast in Mang Inasal style with lettuce, tomato, and mayo.', price: '₱199.99' },
+    { name: 'Filipino Spaghetti', description: 'Traditional Filipino pasta with hotdog, sweet tomato sauce, and marshmallow.', price: '₱169.99' },
   ];
 
   return (

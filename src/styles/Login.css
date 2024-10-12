@@ -1,0 +1,69 @@
+.login-container {
+    background-color: #f5f5f5; /* Light beige background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    margin: 50px auto;
+}
+
+.login-header {
+    text-align: center;
+    color: #333; /* Dark gray text color */
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.login-form input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #000000; /* Light gray border */
+    border-radius: 4px;
+    font-size: 14px;
+    height: 40px;
+    background-color: #bcb2a3; /* Light gray background */
+    width: 100%; /* Full-width input fields */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #ff9900; /* Orange button background */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%; /* Full-width buttons */
+    height: 40px; /* Increased button height */
+    font-weight: bold; /* Bold button text */
+}
+
+.login-form button:hover {
+    background-color: #ff8000; /* Darker orange on hover */
+}
+
+.login-toggle-text {
+    text-align: center;
+    color: #666; /* Dark gray text color */
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+.login-toggle-link {
+    color: #ff9900; /* Orange link color */
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.login-toggle-link:hover {
+    text-decoration : none;
+}
