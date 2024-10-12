@@ -7,8 +7,7 @@ import Contact from './components/Contact';
 import Menu from './components/Menu';
 import './styles/App.css';
 
-// Import the new Menu component
-import Menu from './components/Menu';
+
 
 function App() {
   return (
