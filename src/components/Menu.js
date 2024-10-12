@@ -9,16 +9,25 @@ function Menu() {
   ];
 
   return (
-    <div>
-      <h1>Menu</h1>
-      <ul>
-        {foodItems.map((item, index) => (
-          <li key={index}>
-            <h3>{item.name} - {item.price}</h3>
-            <p>{item.description}</p>
-          </li>
-        ))}
-      </ul>
+    <div className="container">
+      <div className="mains">
+        <h2>Mains</h2>
+        <p>"Filipino cuisine is a flavorful fusion of indigenous, Spanish, Chinese, and American influences, with popular dishes like adobo, sinigang, and lechon showcasing the country's rich culinary heritage."</p>
+        <div className="food-items">
+          {foodItems.map((item, index) => (
+            <div key={index} className="food-item">
+              <div className="food-image">
+                {/* Add images here */}
+              </div>
+              <div className="food-details">
+                <h3>{item.name}</h3>
+                <p>{item.description}</p>
+                <p className="price">{item.price}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
