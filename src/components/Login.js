@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const LoginContainer = styled.div`
   width: 100%;
@@ -26,7 +27,7 @@ const InfoText = styled.p`
 `;
 
 const FormInput = styled.input`
-  width: 115%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -44,7 +45,7 @@ const FormInput = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  width: 115%;
+  width: 100%;
   padding: 10px;
   border: none;
   border-radius: 20px;
@@ -74,11 +75,11 @@ const ToggleLink = styled.span`
 const InputRow = styled.div`
   display: flex;
   justify-content: space-between;
-  gap:80px;
+  gap: 10px;
 `;
 
 const HalfWidthInput = styled.input`
-  width: 140%; 
+  width: 48%; 
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -95,41 +96,92 @@ const HalfWidthInput = styled.input`
   }
 `;
 
-
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const username = e.target.loginUsername.value;
+    const email = e.target.loginUsername.value;
     const password = e.target.loginPassword.value;
 
-    if (username === '' || password === '') {
+    if (email === '' || password === '') {
       alert('Please fill in all fields');
       return;
     }
 
-    alert(`Logged in as: ${username}`);
+    setLoading(true);
+    setErrorMessage('');
+
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(`Logged in as: ${data.user.email}`);
+      } else {
+        const errorData = await response.json();
+        setErrorMessage(errorData.message);
+      }
+    } catch (error) {
+      console.error('Error logging in:', error);
+      setErrorMessage('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const firstName = e.target.registerFirstname.value;
     const lastName = e.target.registerLastname.value;
     const email = e.target.registerEmail.value;
     const password = e.target.registerPassword.value;
     const confirmPassword = e.target.registerConfirmPassword.value;
-
+  
     if (password !== confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
-
-    alert(`Registered with name: ${firstName} ${lastName} and email: ${email}`);
+  
+    setLoading(true);
+    setErrorMessage('');
+  
+    try {
+      const response = await fetch('http://localhost:5000/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ firstName, lastName, email, password }),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        alert(`Registered with name: ${data.newUser.firstName} ${data.newUser.lastName}`);
+      } else {
+        const errorData = await response.json();
+        console.error('Registration error:', errorData); // Log the error for debugging
+        setErrorMessage(errorData.message || 'An error occurred during registration.');
+      }
+    } catch (error) {
+      console.error('Error registering:', error);
+      setErrorMessage('An error occurred. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <LoginContainer>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {isLogin ? (
         <div>
           <LoginHeader>Login</LoginHeader>
@@ -138,13 +190,17 @@ function Login() {
             <FormInput type="text" name="loginUsername" required />
             <InfoText>Password</InfoText>
             <FormInput type="password" name="loginPassword" required />
-            
             <ToggleLink onClick={() => setIsLogin(true)}>Forgot your password?</ToggleLink>
-            <SubmitButton type="submit">Login</SubmitButton>
+            <SubmitButton type="submit" disabled={loading}>
+              {loading ? 'Logging in...' : 'Login'}
+            </SubmitButton>
             <ToggleText>
               Don't have an account?{' '}
               <ToggleLink onClick={() => setIsLogin(false)}>Register here</ToggleLink>
             </ToggleText>
+            <Link to="/user-list">
+              <SubmitButton type="button">View User List</SubmitButton>
+            </Link>
           </form>
         </div>
       ) : (
@@ -167,7 +223,9 @@ function Login() {
             <FormInput type="password" name="registerPassword" required />
             <InfoText>Confirm Password</InfoText>
             <FormInput type="password" name="registerConfirmPassword" required />
-            <SubmitButton type="submit">Register</SubmitButton>
+            <SubmitButton type="submit" disabled={loading}>
+              {loading ? 'Registering...' : 'Register'}
+            </SubmitButton>
             <ToggleText>
               Already have an account?{' '}
               <ToggleLink onClick={() => setIsLogin(true)}>Login here</ToggleLink>
