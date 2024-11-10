@@ -97,7 +97,7 @@ const HalfWidthInput = styled.input`
 `;
 
 function Login() {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState (true);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -139,36 +139,36 @@ function Login() {
   };
 
   const handleRegisterSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); // Corrected line
     const firstName = e.target.registerFirstname.value;
     const lastName = e.target.registerLastname.value;
     const email = e.target.registerEmail.value;
     const password = e.target.registerPassword.value;
     const confirmPassword = e.target.registerConfirmPassword.value;
-  
+
     if (password !== confirmPassword) {
       alert('Passwords do not match!');
       return;
     }
-  
+
     setLoading(true);
     setErrorMessage('');
-  
+
     try {
-      const response = await fetch('http://localhost:5000/api/register', {
+      const response = await fetch('http://localhost:5000/api/registration', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ firstName, lastName, email, password }),
       });
-  
+
       if (response.ok) {
         const data = await response.json();
         alert(`Registered with name: ${data.newUser.firstName} ${data.newUser.lastName}`);
       } else {
         const errorData = await response.json();
-        console.error('Registration error:', errorData); // Log the error for debugging
+        console.error('Registration error:', errorData);
         setErrorMessage(errorData.message || 'An error occurred during registration.');
       }
     } catch (error) {

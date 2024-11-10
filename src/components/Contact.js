@@ -38,8 +38,8 @@ function Contact() {
 
       if (response.ok) {
         const data = await response.json();
-        alert(data.message); // Display success message
-        setFormData({ // Reset form data
+        alert(data.message);
+        setFormData({
           firstName: '',
           lastName: '',
           email: '',
@@ -54,7 +54,7 @@ function Contact() {
         });
       } else {
         const errorData = await response.json();
-        alert(errorData.message); // Display error message
+        alert(errorData.message);
       }
     } catch (error) {
       console.error('Error submitting contact form:', error);
@@ -69,6 +69,7 @@ function Contact() {
           <h2>Contact Us</h2>
           <p>Question or concern? Suggestion? We look forward to hearing from you!</p>
 
+          
           <Form onSubmit={handleSubmit}>
             <Row>
               <Col md={6}>
@@ -220,7 +221,7 @@ function Contact() {
         </Col>
 
         <Col md={4} className="mt-4">
-          <div className="contact-details">
+ <div className="contact-details">
             <h5>Contact us by phone</h5>
             <p>1-877-847-6181</p>
             <p>Hours of Operation: Monday - Friday: 8am - 6pm EST</p>
@@ -236,7 +237,6 @@ function Contact() {
                 <li>What are live and active cultures?</li>
                 <li>What is rBST?</li>
                 <li>Is our product organic?</li>
-                {/* Add more topics as needed */}
               </ul>
             </div>
           </div>
