@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '../styles/Reservation.css';
 function Reservations() {
   const [persons, setPersons] = useState(1);
   const [date, setDate] = useState(new Date());
@@ -15,7 +15,7 @@ function Reservations() {
   };
 
   const handleTimeChange = (event) => {
-    setTime(new Date(event.target.value));
+    setTime(new Date(`1970-01-01T${event.target.value}:00`));
   };
 
   const handleCommentsChange = (event) => {
@@ -24,7 +24,6 @@ function Reservations() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Here you would handle submitting the reservation data to your backend
     console.log('Reservation submitted:', {
       persons,
       date,
@@ -40,16 +39,9 @@ function Reservations() {
         <div className="form-group">
           <label htmlFor="persons">Persons:</label>
           <select id="persons" value={persons} onChange={handlePersonsChange}>
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-            <option value={6}>6</option>
-            <option value={7}>7</option>
-            <option value={8}>8</option>
-            <option value={9}>9</option>
-            <option value={10}>10</option>
+            {[...Array(10).keys()].map(num => (
+              <option key={num + 1} value={num + 1}>{num + 1}</option>
+            ))}
           </select>
         </div>
         <div className="form-group">
@@ -60,7 +52,7 @@ function Reservations() {
             value={date.toISOString().slice(0, 10)}
             onChange={handleDateChange}
           />
-        </ div>
+        </div>
         <div className="form-group">
           <label htmlFor="time">Time:</label>
           <input

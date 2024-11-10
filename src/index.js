@@ -1,14 +1,20 @@
 import React from 'react';
+import 'jquery';
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter as Router } from 'react-router-dom'; // Import Router
 import './index.css';
-import App from './App';
+import Main from './Main'; // Import the Main component
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Main /> {/* Use the Main component wrapped in Router */}
+    </Router>
   </React.StrictMode>
 );
 
