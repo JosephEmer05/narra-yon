@@ -2,8 +2,8 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-image: url("mainbg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-size: flex;
+  background-repeat: repeat;
 }
 
 button {
@@ -107,18 +107,20 @@ button {
 .menu-reservations-bg {
   background-image: url('woodbg.png'); /* Background for Menu and Reservations */
   background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh; /* Ensure it covers the full viewport height */
+  height: 130vh;
+  background-repeat: repeat;
 }
 
 
 .mains h2 {
   margin-top: 0;
   color: #ffffff; /* Change the h2 text color in mains */
+  margin: auto;
 }
 
 .mains  {
-  margin-top: 0;
+  text-align: center;
+  margin-top: 100;
   color: #ffffff; /* Change the h2 text color in mains */
 }
 
@@ -134,7 +136,7 @@ button {
 
 .food-details {
   padding: 10px;
-  color: #000000; /* Change text color inside food details */
+  color: #ffffff; /* Change text color inside food details */
 }
 
 .price {

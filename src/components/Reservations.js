@@ -33,6 +33,7 @@ function Reservations() {
   };
 
   return (
+    <div className="reservations-container">
     <div className="reservation-form">
       <h2>Table Reservation</h2>
       <form onSubmit={handleSubmit}>
@@ -75,6 +76,7 @@ function Reservations() {
         </div>
         <button type="submit">Make Reservation</button>
       </form>
+    </div>
     </div>
   );
 }

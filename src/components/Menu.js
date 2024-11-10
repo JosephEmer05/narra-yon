@@ -76,7 +76,7 @@ function Menu() {
   ];
 
   return (
-    <div className="container">
+    <div className="menu-container">
       <div className="mains">
         <h2>Mains</h2>
         <p>"Filipino cuisine is a flavorful fusion of rich blend of indigenous, Spanish, Chinese, and American influences, known for their bold flavors, savory-sweet balance, and the use of ingredients like garlic, vinegar, soy sauce, coconut, and various meats and seafood."</p>

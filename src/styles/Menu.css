@@ -14,6 +14,8 @@ body {
 
 .mains, .desserts {
   margin-top: 50px;
+  color: white;
+  text-align: center;
 }
 
 .mains h2, .desserts h2 {
@@ -21,7 +23,7 @@ body {
 }
 
 .carousel-item img {
-  max-height: 700px;
+  max-height: 500px;
   object-fit: cover;
 }
 
