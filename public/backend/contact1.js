@@ -13,7 +13,7 @@ const contactSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
   message: { type: String, required: true },
   hasOrderProblem: { type: Boolean, default: false },
-});
+}, { timestamps: true });
 
 // Register the model with Mongoose
 const Contact = mongoose.model('Contact', contactSchema);

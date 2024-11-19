@@ -150,19 +150,22 @@ function Contact() {
                 </Form.Group>
               </Col>
               <Col md={3}>
-                <Form.Group controlId="formState" className="mt-3">
-                  <Form.Label>State *</Form.Label>
-                  <Form.Control 
-                    as="select" 
-                    name="state" 
-                    value={formData.state} 
-                    onChange={handleChange} 
-                    required
-                  >
-                    <option>Select</option>
-                    {/* Add your state options here */}
-                  </Form.Control>
-                </Form.Group>
+              <Form.Group controlId="formState" className="mt-3">
+  <Form.Label>State *</Form.Label>
+  <Form.Control 
+    as="select" 
+    name="state" 
+    value={formData.state} 
+    onChange={handleChange} 
+    required
+  >
+    <option value="">Select</option> {/* Prevents submission if not changed */}
+    <option value="CA">California</option>
+    <option value="NY">New York</option>
+    <option value="TX">Texas</option>
+    {/* Add other states here */}
+  </Form.Control>
+</Form.Group>
               </Col>
               <Col md={3}>
                 <Form.Group controlId="formZip" className="mt-3">
