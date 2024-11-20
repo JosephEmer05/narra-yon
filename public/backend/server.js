@@ -1,8 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+require('dotenv').config();
+
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 // Import routes
 const registrationRoutes = require('./registrationRoutes');
@@ -12,6 +14,7 @@ const contactRoutes = require('./contactRoutes');
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Routes
 app.use('/api/registration', registrationRoutes);
@@ -19,8 +22,7 @@ app.use('/api/login', loginRoutes);
 app.use('/api/contact', contactRoutes);
 
 // MongoDB Connection
-const mongoURI = 'mongodb://localhost:27017/narra-yon';
-mongoose.connect(mongoURI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -34,7 +36,13 @@ mongoose.connect(mongoURI, {
   console.error('MongoDB connection error:', err);
 });
 
-// Optional: Add a route to check if the server is running
+// Health Check Route
 app.get('/', (req, res) => {
   res.send('API is running...');
+});
+
+// Error Handling Middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ message: 'Internal Server Error' });
 });

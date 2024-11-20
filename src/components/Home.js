@@ -1,34 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import welcomeImage from './welcomepage.png';
 
 function Home() {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate('/your-destination-route'); // Use navigate to redirect
+  const handleClick = (path) => {
+    navigate(path);
   };
+
   return (
     <div className="home-container">
       <div style={{ marginTop: '-150px' }}>
         <img 
-          src={require('./welcomepage.png')}
+          src={welcomeImage}
           alt="Welcome to Narra-Yon"
         />
       </div>
       <div 
         className="home-buttons" 
-        style={{ marginTop: '-200px', display: 'center', justifyContent: 'center', marginRight: "-23px"}} // Center the buttons
+        style={{
+          marginTop: '-200px',
+          display: 'flex', 
+          justifyContent: 'center',
+          alignItems: 'center',
+          marginRight: '-23px'
+        }}
       >
         <button 
           className="book-btn"
-          onClick={() => navigate('/reservations')}
+          onClick={() => handleClick('/reservations')}
         >
           Book a table
         </button>
         <button 
           className="menu-btn"
-          style={{marginLeft: '10px'}} // Add margin-left for spacing
-          onClick={() => navigate('/menu')}
+          style={{ marginLeft: '10px' }}
+          onClick={() => handleClick('/menu')}
         >
           View menu
         </button>

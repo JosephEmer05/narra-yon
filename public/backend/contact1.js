@@ -1,10 +1,18 @@
 const mongoose = require('mongoose');
 
-// Define the Contact schema
 const contactSchema = new mongoose.Schema({
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
-  email: { type: String, required: true },
+  email: {
+    type: String,
+    required: true,
+    validate: {
+      validator: function (email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      },
+      message: 'Invalid email format',
+    },
+  },
   address1: { type: String, required: true },
   address2: { type: String },
   city: { type: String, required: true },
@@ -13,8 +21,6 @@ const contactSchema = new mongoose.Schema({
   phoneNumber: { type: String, required: true },
   message: { type: String, required: true },
   hasOrderProblem: { type: Boolean, default: false },
-});
+}, { timestamps: true });
 
-// Register the model with Mongoose
-const Contact = mongoose.model('Contact', contactSchema);
-module.exports = Contact;
+module.exports = mongoose.model('Contact', contactSchema);

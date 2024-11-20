@@ -1,52 +1,52 @@
 /* Menu.css */
 
 body {
-    background-color: #f8f9fa; /* Optional: Background color for the entire page */
-    /* background-image: url('../path/to/your/background.jpg'); */
-    /* background-size: cover; */
-    /* background-position: center; */
-    /* background-attachment: fixed; */
-  }
-  
-  .container {
-    padding: 20px;
-  }
-  
-  .mains, .desserts {
-    margin-top: 50px;
-    color: white;
-    text-align: center;
-  }
-  
-  .mains h2, .desserts h2 {
-    margin-top: 30px;
-  }
-  
-  .carousel-item img {
-    max-height: 500px;
-    object-fit: cover;
-  }
-  
-  .carousel-caption {
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
-    padding: 15px;
-    border-radius: 10px;
-  }
-  
-  .carousel-caption h3 {
-    color: white;
-  }
-  
-  .carousel-caption p {
-    color: white;
-  }
-  
-  .carousel-caption .price {
-    color: white;
-    font-weight: bold;
-  }
-  
-  /* Additional space below the desserts section */
-  .desserts {
-    margin-bottom: 80px;
-  }
+  background-color: #f8f9fa; /* Optional: Background color for the entire page */
+  /* background-image: url('../path/to/your/background.jpg'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-attachment: fixed; */
+}
+
+.container {
+  padding: 20px;
+}
+
+.mains, .desserts {
+  margin-top: 50px;
+  color: white;
+  text-align: center;
+}
+
+.mains h2, .desserts h2 {
+  margin-top: 30px;
+}
+
+.carousel-item img {
+  max-height: 500px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.carousel-caption h3 {
+  color: white;
+}
+
+.carousel-caption p {
+  color: white;
+}
+
+.carousel-caption .price {
+  color: white;
+  font-weight: bold;
+}
+
+/* Additional space below the desserts section */
+.desserts {
+  margin-bottom: 80px;
+}
