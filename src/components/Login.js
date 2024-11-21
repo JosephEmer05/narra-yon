@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const LoginContainer = styled.div`
   width: 100%;
@@ -45,7 +44,7 @@ const FormInput = styled.input`
 `;
 
 const SubmitButton = styled.button`
-  width: 100%;
+  width: 115%;
   padding: 10px;
   border: none;
   border-radius: 20px;
@@ -75,11 +74,18 @@ const ToggleLink = styled.span`
 const InputRow = styled.div`
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap:80px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between; // This will evenly space the elements
+  align-items: center;
+  margin-bottom: 20px; 
 `;
 
 const HalfWidthInput = styled.input`
-  width: 48%; 
+  width: 49%; // Set a width that fits within the container
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -89,6 +95,7 @@ const HalfWidthInput = styled.input`
   color: #333;
   font-size: 1rem;
 
+  
   &:focus {
     border-color: #000;
     background-color: #f0e4d1;
@@ -96,50 +103,25 @@ const HalfWidthInput = styled.input`
   }
 `;
 
-function Login() {
-  const [isLogin, setIsLogin] = useState (true);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleLoginSubmit = async (e) => {
+function Login() {
+  const [isLogin, setIsLogin] = useState(true);
+
+  const handleLoginSubmit = (e) => {
     e.preventDefault();
-    const email = e.target.loginUsername.value;
+    const username = e.target.loginUsername.value;
     const password = e.target.loginPassword.value;
 
-    if (email === '' || password === '') {
+    if (username === '' || password === '') {
       alert('Please fill in all fields');
       return;
     }
 
-    setLoading(true);
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('http://localhost:5000/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert(`Logged in as: ${data.user.email}`);
-      } else {
-        const errorData = await response.json();
-        setErrorMessage(errorData.message);
-      }
-    } catch (error) {
-      console.error('Error logging in:', error);
-      setErrorMessage('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    alert(`Logged in as: ${username}`);
   };
 
-  const handleRegisterSubmit = async (e) => {
-    e.preventDefault(); // Corrected line
+  const handleRegisterSubmit = (e) => {
+    e.preventDefault();
     const firstName = e.target.registerFirstname.value;
     const lastName = e.target.registerLastname.value;
     const email = e.target.registerEmail.value;
@@ -151,37 +133,11 @@ function Login() {
       return;
     }
 
-    setLoading(true);
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('http://localhost:5000/api/registration', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ firstName, lastName, email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        alert(`Registered with name: ${data.newUser.firstName} ${data.newUser.lastName}`);
-      } else {
-        const errorData = await response.json();
-        console.error('Registration error:', errorData);
-        setErrorMessage(errorData.message || 'An error occurred during registration.');
-      }
-    } catch (error) {
-      console.error('Error registering:', error);
-      setErrorMessage('An error occurred. Please try again.');
-    } finally {
-      setLoading(false);
-    }
+    alert(`Registered with name: ${firstName} ${lastName} and email: ${email}`);
   };
 
   return (
     <LoginContainer>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {isLogin ? (
         <div>
           <LoginHeader>Login</LoginHeader>
@@ -190,17 +146,13 @@ function Login() {
             <FormInput type="text" name="loginUsername" required />
             <InfoText>Password</InfoText>
             <FormInput type="password" name="loginPassword" required />
+            
             <ToggleLink onClick={() => setIsLogin(true)}>Forgot your password?</ToggleLink>
-            <SubmitButton type="submit" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
-            </SubmitButton>
+            <SubmitButton type="submit">Login</SubmitButton>
             <ToggleText>
               Don't have an account?{' '}
               <ToggleLink onClick={() => setIsLogin(false)}>Register here</ToggleLink>
             </ToggleText>
-            <Link to="/user-list">
-              <SubmitButton type="button">View User List</SubmitButton>
-            </Link>
           </form>
         </div>
       ) : (
@@ -208,24 +160,23 @@ function Login() {
           <LoginHeader>Register</LoginHeader>
           <form className="login-form" onSubmit={handleRegisterSubmit}>
             <InputRow>
-              <div>
-                <InfoText>First Name</InfoText>
-                <HalfWidthInput type="text" name="registerFirstname" required />
-              </div>
-              <div>
-                <InfoText>Last Name</InfoText>
-                <HalfWidthInput type="text" name="registerLastname" required />
-              </div>
+            <div>
+      <Container>
+      
+        <HalfWidthInput type="firstname" placeholder="First Name" />
+        
+        <HalfWidthInput type="lastname" placeholder="Last Name" />
+      </Container>
+      
+    </div>
             </InputRow>
-            <InfoText>Email</InfoText>
-            <FormInput type="email" name="registerEmail" required />
-            <InfoText>Password</InfoText>
-            <FormInput type="password" name="registerPassword" required />
-            <InfoText>Confirm Password</InfoText>
-            <FormInput type="password" name="registerConfirmPassword" required />
-            <SubmitButton type="submit" disabled={loading}>
-              {loading ? 'Registering...' : 'Register'}
-            </SubmitButton>
+            
+            <FormInput type="email" name="registerEmail" required placeholder="Email" />
+            
+            <FormInput type="password" name="registerPassword" required placeholder="Register Password"/>
+            
+            <FormInput type="password" name="registerConfirmPassword" required placeholder="Confirm Password" />
+            <SubmitButton type="submit">Register</SubmitButton>
             <ToggleText>
               Already have an account?{' '}
               <ToggleLink onClick={() => setIsLogin(true)}>Login here</ToggleLink>
