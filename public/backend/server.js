@@ -22,10 +22,12 @@ app.use('/api/login', loginRoutes);
 app.use('/api/contact', contactRoutes);
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {
+const MONGO_URI = 'mongodb://localhost:27017/narra-yon'; // or your Atlas URI
+mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+
 .then(() => {
   console.log('Connected to MongoDB');
   app.listen(port, () => {
