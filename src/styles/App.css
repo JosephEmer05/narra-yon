@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Arial', sans-serif;
   background-image: url("mainbg.png");
-  background-size: flex;
+  background-size: auto;
   background-repeat: repeat;
 }
 
@@ -106,10 +106,16 @@ button {
 
 .menu-reservations-bg {
   background-image: url('woodbg.png'); /* Background for Menu and Reservations */
-  background-size: cover;
-  height: 130vh;
+  background-size: auto;
+  height: 120vh;
   background-repeat: repeat;
+  margin: 0;
 }
+
+/*.reservations-container {
+  margin: 0;
+  background: auto;
+}*/
 
 
 .mains h2 {
@@ -120,7 +126,7 @@ button {
 
 .mains  {
   text-align: center;
-  margin-top: 100;
+  margin-top: 0;
   color: #ffffff; /* Change the h2 text color in mains */
 }
 

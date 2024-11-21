@@ -74,18 +74,18 @@ const ToggleLink = styled.span`
 const InputRow = styled.div`
   display: flex;
   justify-content: space-between;
-  gap:80px;
+  gap: 80px;
 `;
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between; // This will evenly space the elements
+  justify-content: space-between; 
   align-items: center;
   margin-bottom: 20px; 
 `;
 
 const HalfWidthInput = styled.input`
-  width: 49%; // Set a width that fits within the container
+  width: 49%;
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -95,14 +95,12 @@ const HalfWidthInput = styled.input`
   color: #333;
   font-size: 1rem;
 
-  
   &:focus {
     border-color: #000;
     background-color: #f0e4d1;
     outline: none;
   }
 `;
-
 
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
@@ -160,21 +158,15 @@ function Login() {
           <LoginHeader>Register</LoginHeader>
           <form className="login-form" onSubmit={handleRegisterSubmit}>
             <InputRow>
-            <div>
-      <Container>
-      
-        <HalfWidthInput type="firstname" placeholder="First Name" />
-        
-        <HalfWidthInput type="lastname" placeholder="Last Name" />
-      </Container>
-      
-    </div>
+              <div>
+                <Container>
+                  <HalfWidthInput type="text" name="registerFirstname" placeholder="First Name" />
+                  <HalfWidthInput type="text" name="registerLastname" placeholder="Last Name" />
+                </Container>
+              </div>
             </InputRow>
-            
             <FormInput type="email" name="registerEmail" required placeholder="Email" />
-            
-            <FormInput type="password" name="registerPassword" required placeholder="Register Password"/>
-            
+            <FormInput type="password" name="registerPassword" required placeholder="Register Password" />
             <FormInput type="password" name="registerConfirmPassword" required placeholder="Confirm Password" />
             <SubmitButton type="submit">Register</SubmitButton>
             <ToggleText>

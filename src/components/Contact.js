@@ -42,7 +42,6 @@ function Contact() {
         console.log('Form submission successful:', result);
         alert('Thank you! Your message has been sent.');
 
-        // Reset the form
         setFormData({
           firstName: '',
           lastName: '',
@@ -75,6 +74,7 @@ function Contact() {
           <p>Question or concern? Suggestion? We look forward to hearing from you!</p>
 
           <Form onSubmit={handleSubmit}>
+            {/* Form Fields */}
             <Row>
               <Col md={6}>
                 <Form.Group controlId="formFirstName">
@@ -104,6 +104,7 @@ function Contact() {
               </Col>
             </Row>
 
+            {/* Additional Form Fields */}
             <Form.Group controlId="formEmail" className="mt-3">
               <Form.Label>Email *</Form.Label>
               <Form.Control
@@ -116,6 +117,7 @@ function Contact() {
               />
             </Form.Group>
 
+            {/* Address Section */}
             <Form.Group controlId="formAddress1" className="mt-3">
               <Form.Label>Address 1 *</Form.Label>
               <Form.Control
@@ -127,7 +129,6 @@ function Contact() {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formAddress2" className="mt-3">
               <Form.Label>Address 2</Form.Label>
               <Form.Control
@@ -154,22 +155,6 @@ function Contact() {
                 </Form.Group>
               </Col>
               <Col md={3}>
-              <Form.Group controlId="formState" className="mt-3">
-  <Form.Label>State *</Form.Label>
-  <Form.Control 
-    as="select" 
-    name="state" 
-    value={formData.state} 
-    onChange={handleChange} 
-    required
-  >
-    <option value="">Select</option> {/* Prevents submission if not changed */}
-    <option value="CA">California</option>
-    <option value="NY">New York</option>
-    <option value="TX">Texas</option>
-    {/* Add other states here */}
-  </Form.Control>
-</Form.Group>
                 <Form.Group controlId="formState" className="mt-3">
                   <Form.Label>State *</Form.Label>
                   <Form.Control
@@ -201,6 +186,7 @@ function Contact() {
               </Col>
             </Row>
 
+            {/* Additional Fields */}
             <Form.Group controlId="formPhoneNumber" className="mt-3">
               <Form.Label>Phone Number *</Form.Label>
               <Form.Control
@@ -212,7 +198,6 @@ function Contact() {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formMessage" className="mt-3">
               <Form.Label>Message *</Form.Label>
               <Form.Control
@@ -225,7 +210,6 @@ function Contact() {
                 required
               />
             </Form.Group>
-
             <Form.Group controlId="formCheckBox" className="mt-3">
               <Form.Check
                 type="checkbox"
@@ -235,11 +219,34 @@ function Contact() {
                 onChange={handleChange}
               />
             </Form.Group>
-
             <Button variant="primary" type="submit" className="mt-4">
               Submit
             </Button>
           </Form>
+        </Col>
+
+        {/* Contact Details Section */}
+        <Col md={4} className="mt-4">
+          <div className="contact-details">
+            <h5>Contact us by phone/email</h5>
+            <p>1-877-847-6181</p>
+            <p>narra_yon@gmail.com</p>
+            <p>Hours of Operation: Monday - Friday: 8am - 6pm EST</p>
+
+            <h5>Questions About Our Food?</h5>
+            <Button variant="outline-secondary" href="#">
+              View all FAQs
+            </Button>
+
+            <div className="mt-4">
+              <h5>Most Recent Topics</h5>
+              <ul className="list-unstyled">
+                <li>What are live and active cultures?</li>
+                <li>What is rBST?</li>
+                <li>Is our product organic?</li>
+              </ul>
+            </div>
+          </div>
         </Col>
       </Row>
     </Container>

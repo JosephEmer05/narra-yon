@@ -76,6 +76,7 @@ function Menu() {
   ];
 
   return (
+    <div className="menu-reservations-bg">
     <div className="menu-container">
       <div className="mains">
         <h2>Mains</h2>
@@ -110,6 +111,7 @@ function Menu() {
           ))}
         </Carousel>
       </div>
+    </div>
     </div>
   );
 }

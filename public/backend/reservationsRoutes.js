@@ -1,7 +1,7 @@
 
 const express = require('express');
 const router = express.Router();
-const Reservation = require('./Reservations'); // Import the Reservation model
+const Reservation = require('./reservations'); // Import the Reservation model
 
 // Create a new reservation
 router.post('/reservations', async (req, res) => {

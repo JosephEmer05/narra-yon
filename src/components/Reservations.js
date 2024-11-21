@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/Reservation.css';
+import '../styles/App.css'
 
 function Reservations() {
   const [persons, setPersons] = useState(1);
@@ -34,6 +35,7 @@ function Reservations() {
   };
 
   return (
+    <div className="menu-reservations-bg">
     <div className="reservations-container">
       <div className="reservation-form">
         <h2>Table Reservation</h2>
@@ -77,6 +79,7 @@ function Reservations() {
           <button type="submit">Make Reservation</button>
         </form>
       </div>
+    </div>
     </div>
   );
 }

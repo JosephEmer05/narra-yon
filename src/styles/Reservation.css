@@ -4,7 +4,7 @@
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 400px;
-  margin: 50px auto;
+  margin: auto;
 }
 
 .reservation-form h2 {
@@ -51,4 +51,11 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #d48f00;
+}
+
+.reservations-container {
+  display: flex; /* Enables flexbox layout */
+  justify-content: center; /* Centers content horizontally */
+  align-items: center; /* Centers content vertically */
+  height: 100vh; /* Full viewport height */
 }
