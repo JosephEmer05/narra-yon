@@ -105,20 +105,38 @@ const HalfWidthInput = styled.input`
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const username = e.target.loginUsername.value;
+    const email = e.target.loginUsername.value;
     const password = e.target.loginPassword.value;
 
-    if (username === '' || password === '') {
+    if (email === '' || password === '') {
       alert('Please fill in all fields');
       return;
     }
 
-    alert(`Logged in as: ${username}`);
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(`Logged in successfully: ${result.message}`);
+      } else {
+        const error = await response.json();
+        alert(`Login failed: ${error.message}`);
+      }
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
+    }
   };
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const firstName = e.target.registerFirstname.value;
     const lastName = e.target.registerLastname.value;
@@ -131,7 +149,30 @@ function Login() {
       return;
     }
 
-    alert(`Registered with name: ${firstName} ${lastName} and email: ${email}`);
+    try {
+      const response = await fetch('http://localhost:5000/api/registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(`Registered successfully: ${result.message}`);
+      } else {
+        const error = await response.json();
+        alert(`Registration failed: ${error.message}`);
+      }
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
+    }
   };
 
   return (
@@ -141,11 +182,9 @@ function Login() {
           <LoginHeader>Login</LoginHeader>
           <form className="login-form" onSubmit={handleLoginSubmit}>
             <InfoText>Email</InfoText>
-            <FormInput type="text" name="loginUsername" required />
+            <FormInput type="email" name="loginUsername" required />
             <InfoText>Password</InfoText>
             <FormInput type="password" name="loginPassword" required />
-            
-            <ToggleLink onClick={() => setIsLogin(true)}>Forgot your password?</ToggleLink>
             <SubmitButton type="submit">Login</SubmitButton>
             <ToggleText>
               Don't have an account?{' '}
@@ -160,8 +199,8 @@ function Login() {
             <InputRow>
               <div>
                 <Container>
-                  <HalfWidthInput type="text" name="registerFirstname" placeholder="First Name" />
-                  <HalfWidthInput type="text" name="registerLastname" placeholder="Last Name" />
+                  <HalfWidthInput type="text" name="registerFirstname" placeholder="First Name" required />
+                  <HalfWidthInput type="text" name="registerLastname" placeholder="Last Name" required />
                 </Container>
               </div>
             </InputRow>

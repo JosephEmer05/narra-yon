@@ -15,7 +15,7 @@ const reservationSchema = new mongoose.Schema({
     type: String,
     required: true,
     validate: {
-      validator: (v) => /\b([01]?[0-9]|2[0-3]):[0-5][0-9]\b/.test(v), // Ensures time format HH:MM
+      validator: (v) => /\b([01]?[0-9]|2[0-3]):[0-5][0-9]\b/.test(v),
       message: props => `${props.value} is not a valid time format!`
     }
   },
