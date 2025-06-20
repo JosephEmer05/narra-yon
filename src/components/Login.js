@@ -26,7 +26,7 @@ const InfoText = styled.p`
 `;
 
 const FormInput = styled.input`
-  width: 115%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -74,11 +74,18 @@ const ToggleLink = styled.span`
 const InputRow = styled.div`
   display: flex;
   justify-content: space-between;
-  gap:80px;
+  gap: 80px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-bottom: 20px; 
 `;
 
 const HalfWidthInput = styled.input`
-  width: 140%; 
+  width: 49%;
   padding: 10px;
   margin-bottom: 20px;
   border: 2px solid #a79e8b;
@@ -95,24 +102,41 @@ const HalfWidthInput = styled.input`
   }
 `;
 
-
 function Login() {
   const [isLogin, setIsLogin] = useState(true);
 
-  const handleLoginSubmit = (e) => {
+  const handleLoginSubmit = async (e) => {
     e.preventDefault();
-    const username = e.target.loginUsername.value;
+    const email = e.target.loginUsername.value;
     const password = e.target.loginPassword.value;
 
-    if (username === '' || password === '') {
+    if (email === '' || password === '') {
       alert('Please fill in all fields');
       return;
     }
 
-    alert(`Logged in as: ${username}`);
+    try {
+      const response = await fetch('http://localhost:5000/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(`Logged in successfully: ${result.message}`);
+      } else {
+        const error = await response.json();
+        alert(`Login failed: ${error.message}`);
+      }
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
+    }
   };
 
-  const handleRegisterSubmit = (e) => {
+  const handleRegisterSubmit = async (e) => {
     e.preventDefault();
     const firstName = e.target.registerFirstname.value;
     const lastName = e.target.registerLastname.value;
@@ -125,7 +149,30 @@ function Login() {
       return;
     }
 
-    alert(`Registered with name: ${firstName} ${lastName} and email: ${email}`);
+    try {
+      const response = await fetch('http://localhost:5000/api/registration', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        alert(`Registered successfully: ${result.message}`);
+      } else {
+        const error = await response.json();
+        alert(`Registration failed: ${error.message}`);
+      }
+    } catch (error) {
+      alert(`An error occurred: ${error.message}`);
+    }
   };
 
   return (
@@ -135,11 +182,9 @@ function Login() {
           <LoginHeader>Login</LoginHeader>
           <form className="login-form" onSubmit={handleLoginSubmit}>
             <InfoText>Email</InfoText>
-            <FormInput type="text" name="loginUsername" required />
+            <FormInput type="email" name="loginUsername" required />
             <InfoText>Password</InfoText>
             <FormInput type="password" name="loginPassword" required />
-            
-            <ToggleLink onClick={() => setIsLogin(true)}>Forgot your password?</ToggleLink>
             <SubmitButton type="submit">Login</SubmitButton>
             <ToggleText>
               Don't have an account?{' '}
@@ -153,20 +198,15 @@ function Login() {
           <form className="login-form" onSubmit={handleRegisterSubmit}>
             <InputRow>
               <div>
-                <InfoText>First Name</InfoText>
-                <HalfWidthInput type="text" name="registerFirstname" required />
-              </div>
-              <div>
-                <InfoText>Last Name</InfoText>
-                <HalfWidthInput type="text" name="registerLastname" required />
+                <Container>
+                  <HalfWidthInput type="text" name="registerFirstname" placeholder="First Name" required />
+                  <HalfWidthInput type="text" name="registerLastname" placeholder="Last Name" required />
+                </Container>
               </div>
             </InputRow>
-            <InfoText>Email</InfoText>
-            <FormInput type="email" name="registerEmail" required />
-            <InfoText>Password</InfoText>
-            <FormInput type="password" name="registerPassword" required />
-            <InfoText>Confirm Password</InfoText>
-            <FormInput type="password" name="registerConfirmPassword" required />
+            <FormInput type="email" name="registerEmail" required placeholder="Email" />
+            <FormInput type="password" name="registerPassword" required placeholder="Register Password" />
+            <FormInput type="password" name="registerConfirmPassword" required placeholder="Confirm Password" />
             <SubmitButton type="submit">Register</SubmitButton>
             <ToggleText>
               Already have an account?{' '}

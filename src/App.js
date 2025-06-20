@@ -6,6 +6,7 @@ import Home from './components/Home';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
 import Reservations from './components/Reservations';
+import Login from './components/Login';
 import './styles/App.css';
 import logo from './narralogo.png';
 
@@ -52,7 +53,7 @@ function App() {
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/login" element={<div>Log-In (Placeholder)</div>} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </>
   );
