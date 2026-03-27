@@ -6,8 +6,8 @@ import Home from './Home';
 import Contact from './Contact';
 import Menu from './Menu';
 import Reservations from './Reservations';
-import './App.css';
-import logo from './narralogo.png';
+import '../styles/App.css';
+import logo from '../narralogo.png';
 
 function App() {
   return (
