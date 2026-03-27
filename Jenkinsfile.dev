@@ -38,22 +38,26 @@ pipeline {
         }
 
        stage('Deploy to DEV') {
+
             steps {
+
                 echo "Deploying to Development Environment (Port ${PORT})..."
+
                 script {
+
+                    // Stop and remove existing container if it exists
+
+                    sh "docker stop ${CONTAINER_NAME} || true"
+
+                    sh "docker rm ${CONTAINER_NAME} || true"
+
                     
-                 dir('narra-yon-jenkins') { 
-                       
-                        sh "docker stop ${CONTAINER_NAME} || true"
-                        sh "docker rm ${CONTAINER_NAME} || true"
-                        
-                        
-                        sh "docker build -t ${DOCKER_IMAGE}:latest ."
-                        sh "docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:latest"
-                    }
-                }
-            }
-        }
+
+                    // Build and Run new container
+
+                    sh "docker build -t ${DOCKER_IMAGE}:latest ."
+
+                    sh "docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:latest"
 
     post {
         success {
