@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
-import Home from './components/Home';
+import Home from './Home';
 import Contact from './components/Contact';
 import Menu from './components/Menu';
 import Reservations from './components/Reservations';
