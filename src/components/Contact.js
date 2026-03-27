@@ -3,9 +3,9 @@ import { Route, Routes } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import Home from './Home';
-import Contact from './components/Contact';
-import Menu from './components/Menu';
-import Reservations from './components/Reservations';
+import Contact from './Contact';
+import Menu from './Menu';
+import Reservations from './Reservations';
 import './styles/App.css';
 import logo from './narralogo.png';
 
