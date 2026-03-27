@@ -33,7 +33,7 @@ pipeline {
 
         stage('Run Unit Tests') {
             steps {
-                sh 'npm test -- --run'
+                sh 'npm test -- --watchAll=false
             }
         }
 
