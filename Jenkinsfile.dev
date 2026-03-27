@@ -59,6 +59,13 @@ pipeline {
 
                     sh "docker run -d -p ${PORT}:80 --name ${CONTAINER_NAME} ${DOCKER_IMAGE}:latest"
 
+                }
+
+            }
+
+        }
+
+    }
     post {
         success {
             echo 'Build and Deployment to DEV successful!'
